@@ -7,25 +7,36 @@ end
 
 class Integer
   def to_roman_s
-    value_symbols = [[1000, "M"], [500, "D"], [100, "C"], [50, "L"], [10, "X"], [5, "V"], [1, "I"]]
-
     if self.between?(1, 3999)
       roman_string = ""
-
       int_value = self
 
-      value_symbols.each do |vs|
-        if int_value >= vs[0]
-          int_value -= vs[0]
-          roman_string += vs[1]
-        else
-          next
-        end
-      end
+      roman_string = add_symbol(roman_string, int_value)
 
       return roman_string
     else
       raise OutOfRangeException
     end
   end
+
+  private
+
+  def add_symbol(roman_string, remaining_value)
+    value_symbols = [[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
+     [100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
+     [10, "X"], [9, "IX"], [5, "V"], [4, "IV"],
+     [1, "I"]]
+
+    value_symbols.each do |vs|
+      if remaining_value >= vs[0]
+        remaining_value -= vs[0]
+        roman_string += vs[1]
+        break
+      end
+    end
+
+    # Once we reach 0, we return the completed string, otherwise: recursion.
+    remaining_value == 0 ? roman_string : add_symbol(roman_string, remaining_value)
+  end
+
 end
