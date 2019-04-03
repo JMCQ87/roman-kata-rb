@@ -5,14 +5,25 @@ class OutOfRangeException < StandardError
   # which no Roman Number representation is defined.
 end
 
-
 class Integer
-  # Symbol	I	V	X	L	C	D	M
-  # Value	1	5	10	50	100	500	1,000
-
   def to_roman_s
+    value_symbols = [[1000, "M"], [500, "D"], [100, "C"], [50, "L"], [10, "X"], [5, "V"], [1, "I"]]
+
     if self.between?(1, 3999)
-      self.to_s
+      roman_string = ""
+
+      int_value = self
+
+      value_symbols.each do |vs|
+        if int_value >= vs[0]
+          int_value -= vs[0]
+          roman_string += vs[1]
+        else
+          next
+        end
+      end
+
+      return roman_string
     else
       raise OutOfRangeException
     end
