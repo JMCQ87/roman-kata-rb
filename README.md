@@ -20,3 +20,11 @@ To make use of Ruby's OOP features, the conversion is implemented as a method fo
 instances of the Integer class. As no new separate Roman numeral (sub)class is
 implemented here, the method is named "to_roman_s", analogue to the string
 conversion with "to_s" and other conversion methods.
+
+## Project & Test Setup
+
+This project uses Ruby 2.6.1 and Rspec as the testing framework.
+
+1. Install bundler with `gem install bundler`
+2. Use `bundle` to install the Gems
+3. Run the tests with `rspec`
