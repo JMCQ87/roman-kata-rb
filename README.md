@@ -16,4 +16,6 @@ representing zero are not considered.
 ## Implementation
 
 To make use of Ruby's OOP features, the conversion is implemented as a method for
-instances of the Fixnum class.
+instances of the Integer class. As no new separate Roman numeral (sub)class is
+implemented here, the method is named "to_roman_s", analogue to the string
+conversion with "to_s" and other conversion methods.
