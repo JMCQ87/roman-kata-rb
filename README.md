@@ -23,8 +23,8 @@ conversion with "to_s" and other conversion methods.
 
 ## Project & Test Setup
 
-This project uses Ruby 2.6.1 and Rspec as the testing framework. With RVM, you can
-install this version with `rvm install 2.6.1` and create the gemset with
+This project uses Ruby 2.6.3 and Rspec as the testing framework. With RVM, you can
+install this version with `rvm install 2.6.3` and create the gemset with
 `rvm gemset create roman-kata`.
 
 1. Install bundler with `gem install bundler`
